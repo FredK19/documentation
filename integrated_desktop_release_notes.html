@@ -56,6 +56,16 @@ Warehouse Manager only supports partition 0.  (Order Manager supports all partit
 
 [[/STAFF]]
 
+[[SUBSECTION] Version 11.218 - 8/27/13]
+<li> CORRECTED: Orders with "GB" for country were exporting "US" to Dazzle. Now exporting correct country.
+<li> CORRECTED: Sync is now pulling customer linked Organization code.
+<li> CORRECTED: Email Templates now using Partition as opposed to Profiles to match online updates.  Templates should now display properly.
+<li> CORRECTED: Changed sdomain field to "domain"
+<li> CORRECTED: Updated supplier field.  Value now contains "SUPPLIER:".  This was preventing Supplier filter usage.
+<li> IMPLEMENTED: Emails now sending using Partition fields as opposed to Profile fields.
+<li> IMPLEMENTED: Added "parentid" to list of fields that trigger yellow drop ship highlight.
+[[/SUBSECTION]]
+
 [[SUBSECTION] Version 11.210 - 3/4/13]
 <li> CORRECTED: Order notes were saving properly, but would not display when viewing the order in the editor.  An error referring to po_number would generate on sync.
 <li> IMPLEMENTED: "AUTO" field added to OUTGOINGMAIL XML for message sourcing.
