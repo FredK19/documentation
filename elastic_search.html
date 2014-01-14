@@ -111,6 +111,10 @@ If you still don't see results after 24 Hours, a tech will need to review your c
 <br>
 
 
+<h3>Utilizing different analyzed field (Flex Edit)<h3>
+Creating a keyword list is delimited by Hard returns.
+When adding new custom flex fields the default field is set as a tokenized field. If you do not do an elastic rebuild each word will be tokenized. When using an elastic rebuild after creating it will allow a type of "keyword" or "keyword list".
+Bad practices include: using anything but an "_" as all other characters will be treated as a delimiter.
 
 <aside class="caution">
 <h6></h6>
