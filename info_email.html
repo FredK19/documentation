@@ -24,15 +24,39 @@ reminders, Incomplete Item created, reminders - which are used for auctions, and
 Zoovy supports HTML Email, or more specifically the MIME multipart/alternative format (RFC 1521) which allows Zoovy to send both an HTML and text version of an email in the same message envelope. Zoovy will detect if the message is HTML or Text and then send it with the appropriate headers. A message is assumed to be HTML if one or more HTML tags are found.
 
 <aside class="cbc">
-<h6>Customizing Outbound Email Content</h6>
+<h6>Customizing Outbound Email Messages</h6>
 <div>
 <li>Log in to your account at www.zoovy.com</li>
-<li>Click on the Setup tab</li>
-<li>Click on the site builder link</li>
-<li>Click 'edit' next to email messages</li>
-<li>Click one of the email names on the left to edit that email content</li>
-<li>Click 'edit' next to the body content of the email</li>
-<li>Make changes and save - emails DO support wiki text</li>
+<li>Click on the Utilities tab</li>
+<li>Click on the Email Messaging link</li>
+<li>Click Add Message</li>
+<li>Select which type of automated email you would like to create</li>
+<li>Name the custom email (note that the message type is auto-prepended to the message name)</li>
+<li>Test your new custom email</li>
+
+Using the following format, custom automated messages can be created to be sent to your customers when triggered by system actions:
+The three digit suffix of the order name dictates what status will trigger the custom email:
+ORDER.CONFIRM.PAID_PRETTY.###
+Numbers starting with a 0 dictate a status of Paid.
+Numbers starting with a 1 dictate a status of Pending.
+Numbers starting with a 2 dictate a status of Denied.
+Numbers starting with a 3 dictate a status of Cancelled.
+Numbers starting with a 4 dictate a status of Review.
+Numbers starting with a 5 dictate a status of Processing.
+Numbers starting with a 6 dictate a status of Voided.
+Numbers starting with a 9 dictate a status of Error.
+
+ my ($MSGID) = sprintf('ORDER.CONFIRM.%s.%03d',$ORDER_PS,$ORDER_PS);
+   elsif (substr($ps,0,1) eq '0') { $pc = 'PAID'; }
+   elsif (substr($ps,0,1) eq '1') { $pc = 'PENDING'; }
+   elsif (substr($ps,0,1) eq '2') { $pc = 'DENIED'; }
+   elsif (substr($ps,0,1) eq '3') { $pc = 'CANCELLED'; }
+   elsif (substr($ps,0,1) eq '4') { $pc = 'REVIEW'; }
+   elsif (substr($ps,0,1) eq '5') { $pc = 'PROCESSING'; }
+   elsif (substr($ps,0,1) eq '6') { $pc = 'VOIDED'; }
+   elsif (substr($ps,0,1) eq '9') { $pc = 'ERROR'; }
+
+
 </article>
 
 <aside class="caution">
